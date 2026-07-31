@@ -16,4 +16,12 @@ public class Stack<T> {
     this.top = null;
     this.count = 0;
   }
+
+  public boolean isEmpty() {
+    boolean empty = false;
+    if (this.top == null) {
+      empty = true;
+    }
+    return empty;
+  }
 }  
