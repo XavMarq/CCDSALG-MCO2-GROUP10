@@ -24,4 +24,11 @@ public class Stack<T> {
     }
     return empty;
   }
+
+  public void push(T data) {
+    Node newNode = new Node(data);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.count++;
+  }
 }  
