@@ -23,6 +23,24 @@ public class Pathfinder
         return found;
     }
 
+
+    private Cell getUnvisitedNeighbor(MazeGride maze, Cell current) {
+        int x = current.getX();
+        int y = current.getY();
+        Cell neighbor = null;
+        boolean found = false;
+
+        if (!found && x - 1 >= 0) {
+            Cell up = maze.getCell(x - 1, y);
+            if (up != null && up.getType() != '#' && !up.isVisited()) {
+                neighbor = up;
+                found = true;
+            }
+        }
+
+        
+    }
+    
     public int getTotalSteps() {
         return this.totalSteps;
     }
