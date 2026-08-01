@@ -38,7 +38,30 @@ public class Pathfinder
             }
         }
 
+        if (!found && x + 1 < maze.getRows()) {
+            Cell down = maze.getCell(x + 1, y);
+            if (down != null && down.getType() != '#' && !down.isVisited()) {
+                neighbor = down;
+                found = true;
+            }
+        }
         
+        if (!found && y - 1 >= 0) {
+            Cell left = maze.getCell(x, y - 1);
+            if (left != null && left.getType() != '#' && !left.isVisited()) {
+                neighbor = left;
+                found = true;
+            }
+        }
+
+        if (!found && y + 1 < maze.getCols()) {
+            Cell right = maze.getCell(x, y + 1);
+            if (right != null && right.getType() != '#' && !right.isVisited()) {
+                neighbor = right;
+                found = true;
+            }
+        }
+        return neighbor;
     }
     
     public int getTotalSteps() {
