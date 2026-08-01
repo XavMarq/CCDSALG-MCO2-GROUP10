@@ -31,4 +31,30 @@ public class Stack<T> {
     this.top = newNode;
     this.count++;
   }
+
+  public T pop() {
+      T poppedData = null;
+
+      if (this.top != null){
+          poppedData = this.top.data;
+          this.top = this.top.next;
+          this.count--;
+      }
+
+      return poppedData;
+  }
+
+  public T peek() {
+      T topData = null;
+
+      if (this.top != null) {
+          topData = this.top.data;
+      }
+
+      return topData;
+  }
+
+  public int getCount() {
+    return this.count;
+  }
 }  
