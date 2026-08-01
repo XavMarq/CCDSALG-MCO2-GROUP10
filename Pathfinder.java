@@ -12,6 +12,26 @@ public class Pathfinder
         this.pathFound = false;
     }
 
+    public boolean solveDFS(MazeGrid maze) {
+        boolean found = false;
+        long startTime = System.currentTimeMillis();
+
+        // TODO: Implement Stack-based DFS here
+        long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
+
+        return found;
+    }
+
+    public int getTotalSteps() {
+        return this.totalSteps;
+    }
+
+    public long getExecutionTime() {
+        return this.executionTime;
+    }
+
+    
 
 
     // search algo 
