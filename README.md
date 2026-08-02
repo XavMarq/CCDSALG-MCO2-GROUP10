@@ -13,4 +13,6 @@ Navigate to the directory containing the .java source files, and run the followi
 ### javac *.java
 
 ### Step 2:
-java Driver
+
+Run the following command to run the application:
+### java Driver
