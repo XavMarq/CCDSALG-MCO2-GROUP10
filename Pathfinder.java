@@ -23,7 +23,34 @@ public class Pathfinder
             stack.push(start)'
                 start.setVisited(true);
         }
-        
+
+        while (!stack.isEmpty() && !found) {
+            Cell current = stack.pop();
+            this.totalSteps++;
+
+            if (current.getType() == 'G') {
+                found = true;
+            }
+            else {
+                int row = current.getX();
+                int col = current.getY();
+
+                if (row - 1 >= 0) {
+                    Cell up = maze.getCell(row - 1, col);
+                    if (!up.isVisited() && up.getType() != '#') {
+                        up.setVisited(true);
+                        stack.push(up);
+                    }
+                }
+
+                if (row + 1 < maze.getRows()) {
+                    Cell down - maze.getCell(row + 1, col);
+                    if (!down.isVisited() && down.getType() != '#') {
+                        down.setVisited(true);
+                        stack.push(down);
+                    }
+                }
+                    
         long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
 
