@@ -20,45 +20,39 @@ public class Pathfinder
         Cell start = maze.getStart();
 
         if (start != null) {
-            stack.push(start)'
-                start.setVisited(true);
+            stack.push(start);
+            start.setVisited(true);
         }
 
         while (!stack.isEmpty() && !found) {
-            Cell current = stack.pop();
+            Cell current = stack.peek();
             this.totalSteps++;
 
             if (current.getType() == 'G') {
                 found = true;
             }
             else {
-                int row = current.getX();
-                int col = current.getY();
+                Cell neighbor = getUnvisitedNeighbor(maze, current);
 
-                if (row - 1 >= 0) {
-                    Cell up = maze.getCell(row - 1, col);
-                    if (!up.isVisited() && up.getType() != '#') {
-                        up.setVisited(true);
-                        stack.push(up);
-                    }
+                if (neighbor != null) {
+                    neighbor.setVisited(true);
+                    stack.push(neighbor);
                 }
+                else {
+                    stack.pop();
+                }
+            }
+        }
 
-                if (row + 1 < maze.getRows()) {
-                    Cell down - maze.getCell(row + 1, col);
-                    if (!down.isVisited() && down.getType() != '#') {
-                        down.setVisited(true);
-                        stack.push(down);
-                    }
-                }
-                    
         long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
-
+        this.pathLength = stack.getCount();
+        
         return found;
     }
 
 
-    private Cell getUnvisitedNeighbor(MazeGride maze, Cell current) {
+    private Cell getUnvisitedNeighbor(MazeGrid maze, Cell current) {
         int x = current.getX();
         int y = current.getY();
         Cell neighbor = null;
