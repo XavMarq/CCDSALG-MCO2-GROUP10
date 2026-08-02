@@ -16,7 +16,14 @@ public class Pathfinder
         boolean found = false;
         long startTime = System.currentTimeMillis();
 
-        // TODO: Implement Stack-based DFS here
+        Stack<Cell> stack = new Stack<Cell>();
+        Cell start = maze.getStart();
+
+        if (start != null) {
+            stack.push(start)'
+                start.setVisited(true);
+        }
+        
         long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
 
